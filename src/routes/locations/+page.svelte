@@ -12,7 +12,6 @@
 	{#each locationsValue as location}
 		<li>
 			<a href="/locations/{location.name}">{location.name}</a>
-			{location.coordinates}
 		</li>
 	{/each}
 </ul>

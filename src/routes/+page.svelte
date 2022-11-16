@@ -20,12 +20,11 @@
 
 <ul>
 	{#each locationsValue as location}
-		<li>{location.name} ({location.coordinates})</li>
+		<li>{location.name}</li>
 		<ul>
 			{#each sitesValue as site}
 				<li>
 					<a rel="noreferrer" target="_blank" href={locationizeSite(location, site)}>{site.name}</a>
-					({locationizeSite(location, site)})
 				</li>
 			{/each}
 		</ul>

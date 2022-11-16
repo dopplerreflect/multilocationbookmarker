@@ -16,7 +16,6 @@
 			<a href="/sites/{site.name}">
 				{site.name}
 			</a>
-			<span class="mono">{site.url}</span>
 		</li>
 	{/each}
 </ul>
