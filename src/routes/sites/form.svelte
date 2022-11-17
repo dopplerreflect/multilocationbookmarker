@@ -2,8 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { sites } from '../../lib/store';
 	import type { Site, Sites } from '../../types';
-	import { v4 as uuidv4 } from 'uuid';
-	export let site: Site = { uuid: uuidv4(), name: '', url: '' };
+	export let site: Site = { uuid: crypto.randomUUID(), name: '', url: '' };
 
 	let sitesValue: Sites;
 	sites.subscribe((value) => (sitesValue = value));

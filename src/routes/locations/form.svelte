@@ -1,16 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { locations } from '../../lib/store';
-	import { v4 as uuidv4 } from 'uuid';
 	import type { Location, Locations } from '../../types';
-	export let location: Location = { uuid: uuidv4(), name: '', coordinates: '' };
+	export let location: Location = { uuid: crypto.randomUUID(), name: '', coordinates: '' };
 
 	let locationsValue: Locations;
 	locations.subscribe((value) => (locationsValue = value));
 
 	const handleSubmit = (event: any) => {
 		locations.set([...locationsValue.filter((l) => l.uuid !== location.uuid), location]);
-		// location = { uuid: uuidv4(), name: '', coordinates: '' };
 		goto('/locations');
 	};
 

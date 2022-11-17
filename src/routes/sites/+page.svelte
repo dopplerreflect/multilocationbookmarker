@@ -1,5 +1,5 @@
 <script type="ts">
-	import { sites } from '../../lib/store';
+	import { sites } from '$lib/store';
 	import type { Sites } from '../../types';
 
 	let sitesValue: Sites;
