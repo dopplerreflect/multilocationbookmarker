@@ -13,6 +13,9 @@
 		<li aria-current={$page.url.pathname.match(/\/sites/) ? 'page' : undefined}>
 			<a href="/sites">Sites</a>
 		</li>
+		<li aria-current={$page.url.pathname.match(/\/data/) ? 'page' : undefined}>
+			<a href="/data">Data</a>
+		</li>
 	</ul>
 </nav>
 
