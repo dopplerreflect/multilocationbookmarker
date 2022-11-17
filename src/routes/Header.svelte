@@ -5,24 +5,27 @@
 <nav>
 	<ul>
 		<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-			<a href="/">Home</a>
+			<a href="/"><button>Home</button></a>
 		</li>
 		<li aria-current={$page.url.pathname.match(/\/locations/) ? 'page' : undefined}>
-			<a href="/locations">Locations</a>
+			<a href="/locations"><button>Locations</button></a>
 		</li>
 		<li aria-current={$page.url.pathname.match(/\/sites/) ? 'page' : undefined}>
-			<a href="/sites">Sites</a>
+			<a href="/sites"><button>Sites</button></a>
 		</li>
 		<li aria-current={$page.url.pathname.match(/\/data/) ? 'page' : undefined}>
-			<a href="/data">Data</a>
+			<a href="/data"><button>Data</button></a>
 		</li>
 	</ul>
 </nav>
 
 <style>
+	nav {
+		border-bottom: 1px solid var(--link-color);
+		margin-bottom: 1em;
+	}
 	a {
 		text-decoration: none;
-		color: blue;
 	}
 	ul {
 		margin: 0;
@@ -32,8 +35,14 @@
 		display: inline-block;
 		list-style-type: none;
 	}
-	li[aria-current='page'] {
-		font-weight: bold;
-		border-bottom: 1px solid black;
+	li button {
+		background-color: var(--link-color);
+		cursor: pointer;
+	}
+	li button:hover {
+		background-color: hsl(220, 50%, 80%);
+	}
+	li[aria-current='page'] button {
+		background-color: hsl(220, 50%, 80%);
 	}
 </style>

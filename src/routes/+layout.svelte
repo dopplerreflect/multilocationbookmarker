@@ -11,6 +11,17 @@
 </div>
 
 <style global>
+	:root {
+		--link-color: hsl(220, 100%, 80%);
+	}
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: hsl(220, 50%, 20%);
+		color: hsl(220, 50%, 80%);
+	}
+	a {
+		color: var(--link-color);
+	}
 	label,
 	input,
 	textarea {

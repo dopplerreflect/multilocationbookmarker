@@ -17,9 +17,3 @@
 		</li>
 	{/each}
 </ul>
-
-<style>
-	.mono {
-		font-family: 'Courier New', Courier, monospace;
-	}
-</style>

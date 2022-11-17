@@ -18,10 +18,10 @@
 	}
 </script>
 
-<ul>
+<ul class="location">
 	{#each locationsValue as location}
 		<li>{location.name}</li>
-		<ul>
+		<ul class="site">
 			{#each sitesValue as site}
 				<li>
 					<a rel="noreferrer" target="_blank" href={locationizeSite(location, site)}>{site.name}</a>
@@ -30,3 +30,16 @@
 		</ul>
 	{/each}
 </ul>
+
+<style>
+	ul {
+		list-style-type: none;
+		padding: 0.5em 1em;
+	}
+	ul.location {
+		padding-left: 0;
+	}
+	ul.site li {
+		line-height: 1.5em;
+	}
+</style>
