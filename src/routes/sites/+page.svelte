@@ -1,8 +1,6 @@
 <script type="ts">
 	import { sites } from '../../lib/store';
-	import type { Site, Sites } from '../../types';
-
-	let site: Site = { name: '', url: '' };
+	import type { Sites } from '../../types';
 
 	let sitesValue: Sites;
 	sites.subscribe((value) => (sitesValue = value));
@@ -13,7 +11,7 @@
 <ul>
 	{#each sitesValue as site}
 		<li>
-			<a href="/sites/{site.name}">
+			<a href="/sites/{site.uuid}">
 				{site.name}
 			</a>
 		</li>
