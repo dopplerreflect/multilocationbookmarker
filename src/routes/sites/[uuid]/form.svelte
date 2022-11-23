@@ -11,7 +11,12 @@
 		sites.set([...sitesValue.filter((s) => s.uuid !== site.uuid), site]);
 		goto('/sites');
 	};
+	let confirmed = false;
 	const deleteSite = (uuid: string) => {
+		if (!confirmed) {
+			confirmed = true;
+			return;
+		}
 		sites.set([...sitesValue.filter((s) => s.uuid !== uuid)]);
 		goto('/sites');
 	};
@@ -24,9 +29,15 @@
 	<input id="name" autocomplete="off" bind:value={site.name} />
 	<label for="url"> URL </label>
 	<textarea id="url" autocomplete="off" bind:value={site.url} />
-	<button type="submit">Submit</button>
+	<button type="submit">Save</button>
 </form>
 
 {#if site.name !== ''}
-	<button on:click={(e) => deleteSite(site.uuid)}>X</button>
+	<button on:click={(e) => deleteSite(site.uuid)} class={confirmed ? 'red' : ''}>Remove</button>
 {/if}
+
+<style>
+	button.red {
+		background-color: orangered;
+	}
+</style>

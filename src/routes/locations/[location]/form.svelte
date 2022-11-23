@@ -12,7 +12,12 @@
 		goto('/locations');
 	};
 
+	let confirmed = false;
 	const deleteLocation = (uuid: string) => {
+		if (!confirmed) {
+			confirmed = true;
+			return;
+		}
 		locations.set([...locationsValue.filter((l) => l.uuid !== uuid)]);
 		goto('/locations');
 	};
@@ -31,5 +36,13 @@
 </form>
 
 {#if location.name !== ''}
-	<button on:click={(e) => deleteLocation(location.uuid)}>X</button>
+	<button on:click={(e) => deleteLocation(location.uuid)} class={confirmed ? 'red' : ''}
+		>Remove</button
+	>
 {/if}
+
+<style>
+	button.red {
+		background-color: orangered;
+	}
+</style>
