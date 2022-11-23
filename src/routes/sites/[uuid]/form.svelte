@@ -1,7 +1,7 @@
 <script type="ts">
 	import { goto } from '$app/navigation';
-	import { sites } from '../../lib/store';
-	import type { Site, Sites } from '../../types';
+	import { sites } from '../../../lib/store';
+	import type { Site, Sites } from '../../../types';
 	export let site: Site = { uuid: crypto.randomUUID(), name: '', url: '' };
 
 	let sitesValue: Sites;

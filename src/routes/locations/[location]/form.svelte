@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { locations } from '../../lib/store';
-	import type { Location, Locations } from '../../types';
+	import { locations } from '../../../lib/store';
+	import type { Location, Locations } from '../../../types';
 	export let location: Location = { uuid: crypto.randomUUID(), name: '', coordinates: '' };
 
 	let locationsValue: Locations;
@@ -27,7 +27,7 @@
 	<input id="coordinates" autocomplete="off" bind:value={location.coordinates} />
 	<label for="address">Address</label>
 	<input id="address" autocomplete="off" bind:value={location.address} />
-	<button type="submit">Submit</button>
+	<button type="submit">Save</button>
 </form>
 
 {#if location.name !== ''}

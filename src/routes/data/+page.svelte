@@ -2,26 +2,31 @@
 	import { locations, sites } from '../../lib/store';
 
 	let sitesValue: string;
-	sites.subscribe((value) => (sitesValue = JSON.stringify(value, null, 2)));
+	sites.subscribe((value) => (sitesValue = JSON.stringify(value)));
 
 	let locationsValue: string;
-	locations.subscribe((value) => (locationsValue = JSON.stringify(value, null, 2)));
+	locations.subscribe((value) => (locationsValue = JSON.stringify(value)));
+
+	$: data = `{"sites":${sitesValue},"locations":${locationsValue}}`;
+
+	const handleSubmit = (event: any) => {
+		let { sites: _sites, locations: _locations } = JSON.parse(data);
+		console.log(_sites, _locations);
+		sites.set(_sites);
+		locations.set(_locations);
+	};
 </script>
 
-<div>
-	<code>
-		sites = {sitesValue}
-	</code>
-</div>
-<div>
-	<code>
-		locations = {locationsValue}
-	</code>
-</div>
+<form on:submit|preventDefault={handleSubmit}>
+	<div>
+		<textarea bind:value={data} />
+	</div>
+	<button type="submit">Save</button>
+</form>
 
 <style>
-	code {
-		display: block;
-		white-space: pre;
+	textarea {
+		width: 100%;
+		height: calc(100vh / 3);
 	}
 </style>
