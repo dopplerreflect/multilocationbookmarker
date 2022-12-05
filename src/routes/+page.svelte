@@ -18,26 +18,34 @@
 	}
 </script>
 
-<ul class="location">
+<div class="location">
 	{#each locationsValue as location}
-		<li>{location.name}</li>
-		<ul class="site">
-			{#each sitesValue as site}
-				<li>
-					<a rel="noreferrer" target="_blank" href={locationizeSite(location, site)}>{site.name}</a>
-				</li>
-			{/each}
-		</ul>
+		<details>
+			<summary>{location.name}</summary>
+			<ul class="site">
+				{#each sitesValue as site}
+					<li>
+						<a rel="noreferrer" target="_blank" href={locationizeSite(location, site)}
+							>{site.name}</a
+						>
+					</li>
+				{/each}
+			</ul>
+		</details>
 	{/each}
-</ul>
+</div>
 
 <style>
+	details {
+		margin-bottom: 0.5em;
+	}
+	summary:hover {
+		font-weight: bold;
+		cursor: pointer;
+	}
 	ul {
 		list-style-type: none;
 		padding: 0.5em 1em;
-	}
-	ul.location {
-		padding-left: 0;
 	}
 	ul.site li {
 		line-height: 1.5em;
