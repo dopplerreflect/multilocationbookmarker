@@ -13,7 +13,7 @@
 		if (location.address !== '' && site.url.match(/ryancarlton/)) {
 			return `${site.url}/${location.address?.replace(/ /g, '%20')}`;
 		}
-		const [lat, lon] = location.coordinates.split(', ').map((v) => Number(v).toFixed(3));
+		const [lat, lon] = location.coordinates.split(/[, ]+/).map((v) => Number(v).toFixed(3));
 		return site.url.replace(/LAT/, lat).replace(/LON/, lon);
 	}
 </script>
