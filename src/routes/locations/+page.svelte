@@ -11,7 +11,7 @@
 <ul>
 	{#each locationsValue as location}
 		<li>
-			<a href="/locations/{location.name}">{location.name}</a>
+			<a href="/locations/{location.uuid}">{location.name}</a>
 		</li>
 	{/each}
 </ul>

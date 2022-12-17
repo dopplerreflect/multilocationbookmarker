@@ -7,7 +7,7 @@ let locationsValue: Locations;
 locations.subscribe((value) => (locationsValue = value));
 
 export function load({ params }: any) {
-	const location: Location = locationsValue.find((l) => l.name === params.location) || {
+	const location: Location = locationsValue.find((l) => l.uuid === params.location) || {
 		uuid: crypto.randomUUID(),
 		name: '',
 		coordinates: ''
